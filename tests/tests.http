@@ -1,5 +1,5 @@
 @rootUrl = http://localhost:3000/api/todos/
-@id = 5fe9ebac758c5422bc474856
+@id = 5fe9eca0c8818e1840472005
 
 ###Get all todos
 GET {{rootUrl}}/ HTTP/1.1
@@ -17,3 +17,6 @@ Content-Type: application/json
 
 ###Delete a todo
 DELETE {{rootUrl}}/{{id}}/ HTTP/1.1
+
+###Update a todo
+PATCH {{rootUrl}}/{{id}}/ HTTP/1.1
