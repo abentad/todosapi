@@ -1,6 +1,5 @@
 import express from "express";
 import dotenv from "dotenv";
-import morgan from "morgan";
 import connectDB from "./config/connectDB.js";
 import myRoute from "./routes/myRoute.js";
 
@@ -18,7 +17,6 @@ const port = process.env.PORT || 3000;
   const app = express();
 
   //middle wares
-  app.use(morgan("dev"));
   app.use("/api/todos/", myRoute);
   //for posting
   app.use(express.json());
