@@ -21,6 +21,11 @@ const port = process.env.PORT || 3000;
   //for posting
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
+  app.get("/", (req, res) => {
+    res.json(
+      "message: welcome to todo list api add /api/todos/ to view all todos"
+    );
+  });
 
   //app listening port
   app.listen(port, () => {
