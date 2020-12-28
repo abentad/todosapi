@@ -6,8 +6,10 @@ import myRoute from "./routes/myRoute.js";
 
 //enviroment variables initialized
 dotenv.config();
-const { PORT } = process.env;
+// const { PORT } = process.env;
+const port = process.env.PORT || 3000;
 
+//
 (async () => {
   //connect to the Database
   await connectDB();
@@ -23,7 +25,7 @@ const { PORT } = process.env;
   app.use(express.urlencoded({ extended: false }));
 
   //app listening port
-  app.listen(PORT, () => {
-    console.log(`server started at http://localhost:${PORT}`);
+  app.listen(port, () => {
+    console.log(`server started at http://localhost:${port}`);
   });
 })();
