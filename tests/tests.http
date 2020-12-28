@@ -1,0 +1,4 @@
+@rootUrl = http://localhost:3000/api/todos/
+
+###Get all todos
+GET {{rootUrl}} HTTP/1.1

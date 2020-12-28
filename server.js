@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import connectDB from "./config/connectDB.js";
+import myRoute from "./routes/myRoute.js";
 
 //enviroment variables initialized
 dotenv.config();
@@ -16,11 +17,7 @@ const { PORT } = process.env;
 
   //middle wares
   app.use(morgan("dev"));
-
-  //basic route
-  app.get("/api/todos/:id/", (req, res) => {
-    res.json({ id: req.params.id });
-  });
+  app.use("/api/todos/", myRoute);
 
   //app listening port
   app.listen(PORT, () => {
