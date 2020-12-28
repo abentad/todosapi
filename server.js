@@ -1,23 +1,29 @@
 import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import connectDB from "./config/connectDB.js";
 
 //enviroment variables initialized
 dotenv.config();
 const { PORT } = process.env;
 
-//express initialized
-const app = express();
+(async () => {
+  //connect to the Database
+  await connectDB();
 
-//middle wares
-app.use(morgan("dev"));
+  //express initialized
+  const app = express();
 
-//basic route
-app.get("/api/todos/:id/", (req, res) => {
-  res.json({ id: req.params.id });
-});
+  //middle wares
+  app.use(morgan("dev"));
 
-//app listening port
-app.listen(PORT, () => {
-  console.log(`server started at port ${PORT}`);
-});
+  //basic route
+  app.get("/api/todos/:id/", (req, res) => {
+    res.json({ id: req.params.id });
+  });
+
+  //app listening port
+  app.listen(PORT, () => {
+    console.log(`server started at http://localhost:${PORT}`);
+  });
+})();
