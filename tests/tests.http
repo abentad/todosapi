@@ -1,4 +1,19 @@
 @rootUrl = http://localhost:3000/api/todos/
+@id = 5fe9ebac758c5422bc474856
 
 ###Get all todos
-GET {{rootUrl}} HTTP/1.1
+GET {{rootUrl}}/ HTTP/1.1
+
+###Get a todo by id
+GET {{rootUrl}}/{{id}}/ HTTP/1.1
+
+###create a todo
+POST {{rootUrl}}/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "text" : "Go to the store"
+}
+
+###Delete a todo
+DELETE {{rootUrl}}/{{id}}/ HTTP/1.1

@@ -18,6 +18,9 @@ const { PORT } = process.env;
   //middle wares
   app.use(morgan("dev"));
   app.use("/api/todos/", myRoute);
+  //for posting
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: false }));
 
   //app listening port
   app.listen(PORT, () => {
